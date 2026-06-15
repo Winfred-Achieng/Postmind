@@ -10,8 +10,8 @@ HackerNews trends → LLM generates tweet → You review → Twitter publishes
 
 1. Every hour the scheduler fetches top HackerNews stories
 2. The top 5 by score are sent to Groq (Llama 3) to generate tweet drafts
-3. Drafts appear in the dashboard for human review
-4. You approve or reject each one
+3. You get a Telegram notification telling you how many drafts are ready
+4. You approve or reject each one in the dashboard
 5. Approved posts are published to your Twitter account within 5 minutes
 
 ## Tech Stack
@@ -23,6 +23,7 @@ HackerNews trends → LLM generates tweet → You review → Twitter publishes
 | LLM | Groq API (Llama 3.1 — free tier) |
 | Trend source | HackerNews Firebase API |
 | Publishing | Twitter/X API v2 (OAuth 1.0a) |
+| Notifications | Telegram Bot API |
 | Frontend | React 18, React Router v6, Vite |
 
 ## Project Structure
@@ -90,11 +91,14 @@ TWITTER_API_KEY=...
 TWITTER_API_SECRET=...
 TWITTER_ACCESS_TOKEN=...
 TWITTER_ACCESS_TOKEN_SECRET=...
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_CHAT_ID=...
 ```
 
 Get your keys:
 - **Groq**: console.groq.com → API Keys (free)
 - **Twitter**: developer.twitter.com → Your App → Keys and Tokens
+- **Telegram**: message @BotFather on Telegram → `/newbot` to get a token; send a message to your bot then call `https://api.telegram.org/bot<TOKEN>/getUpdates` to find your chat ID
 
 ### 3. Run the backend
 
