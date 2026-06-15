@@ -41,3 +41,6 @@ postmind:
     api-secret: ${TWITTER_API_SECRET}
     access-token: ${TWITTER_ACCESS_TOKEN}
     access-token-secret: ${TWITTER_ACCESS_TOKEN_SECRET}
+  telegram:
+    bot-token: ${TELEGRAM_BOT_TOKEN}
+    chat-id: ${TELEGRAM_CHAT_ID}

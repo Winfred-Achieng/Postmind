@@ -3,7 +3,7 @@ package com.postmind.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "postmind")
-public record AppProperties(HackerNews hackernews, Perplexity perplexity, Twitter twitter) {
+public record AppProperties(HackerNews hackernews, Perplexity perplexity, Twitter twitter, Telegram telegram) {
 
     public record HackerNews(
             String baseUrl,
@@ -23,5 +23,10 @@ public record AppProperties(HackerNews hackernews, Perplexity perplexity, Twitte
             String apiSecret,
             String accessToken,
             String accessTokenSecret
+    ) {}
+
+    public record Telegram(
+            String botToken,
+            String chatId
     ) {}
 }
